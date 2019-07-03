@@ -7,14 +7,13 @@ textarea {
     width: 80%;
     height: 70px;
     resize: none;
+    margin: 0 0 20px 0;
 }
 
-#btnblock {
-    display: flex;
-    justify-content: left;
+#btn-block {
     margin: 25px;
 }
 
-#addNewTipButton {
-    margin: 0 25px;
+a {
+    margin-right: 25px
 }
