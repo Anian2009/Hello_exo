@@ -3,7 +3,9 @@
     Vue.component('app', {
         props: ['tip', 'vflag', 'txt'],
         created: function () {
-            fetch('/portal/rest/demo/tip').then(response => response.json().then(data => {
+            fetch('/portal/rest/demo/random-tip')
+                .then(response => response.json()
+                    .then(data => {
                 this.tip = data.text;
             }))
         },
@@ -32,9 +34,10 @@
                         {
                             method: 'POST',
                             headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify({id: 10, text: this.txt})
+                            body: JSON.stringify({text: this.txt})
                         }
-                    ).then(result => result.json().then(data => {
+                    ).then(result => result.json()
+                        .then(data => {
                             this.tip = data.text;
                         }
                     ));
@@ -44,9 +47,11 @@
                 this.vflag = !this.vflag;
             },
             getRandomTip: function () {
-                fetch('/portal/rest/demo/tip').then(response => response.json().then(data => {
-                    this.tip = data.text;
-                }))
+                fetch('/portal/rest/demo/random-tip')
+                    .then(response => response.json()
+                        .then(data => {
+                            this.tip = data.text;
+                        }))
             }
         },
 
